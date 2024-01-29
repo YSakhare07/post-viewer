@@ -10,11 +10,19 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.3",
-    "vue": "^3.4.14",
+    "@nuxtjs/tailwindcss": "^6.10.4",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "nuxt": "^3.9.1",
+    "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxtjs/auth-next": "^5.0.0-1667386184.dfbbb54",
+    "@nuxtjs/axios": "^5.13.6",
+    "@pinia/nuxt": "^0.5.1",
+    "flowbite": "^2.2.1",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "vite": "^5.0.12"
   }
 }
