@@ -52,8 +52,6 @@ export default {
         const pageId = ref(authStore.pageId);
         const pageAccessToken = ref(authStore.pageAccessToken);
         const error = ref(authStore.error);
-
-        console.log(pageAccessToken,pageId);
     },
     data() {
         return {

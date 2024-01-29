@@ -22,7 +22,4 @@ Route::get('/login/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 })->name('facebook.login');
 
-// routes/web.php
 Route::get('/login/facebook/callback', 'App\Http\Controllers\Authlar\Auth\LoginController@handleFacebookCallback');
-
-Route::get('/logout', 'Authlar\Auth\LoginController@logout')->name('logout');

@@ -30,16 +30,18 @@ export const useAuthStore = defineStore("auth", {
 
         async fetchFacebookPageInfo() {
             try {
-                // Make a request to your Laravel backend to fetch Facebook Page Info
-                const response = await fetch('http://localhost:8000/login/facebook');
+                const response = await fetch('http://localhost:8000/login/facebook/callback');
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch Facebook Page Info');
+                }
+
                 const data = await response.json();
 
-                // Update the store with the fetched information
-                this.pageId = data.page_id;
-                this.pageAccessToken = data.page_access_token;
+                this.pageId = data.id; // Assuming the identifier is 'id' in the response
+                this.pageAccessToken = data.access_token; // Assuming the access token is 'access_token' in the response
                 this.error = null;
             } catch (error) {
-                // Handle errors and update the store accordingly
                 this.pageId = null;
                 this.pageAccessToken = null;
                 this.error = error.message || 'An error occurred';
