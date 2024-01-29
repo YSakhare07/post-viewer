@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login/facebook', function () {
+    return Socialite::driver('facebook')->redirect();
+})->name('facebook.login');
+
+// routes/web.php
+Route::get('/login/facebook/callback', 'App\Http\Controllers\Authlar\Auth\LoginController@handleFacebookCallback');
+
+Route::get('/logout', 'Authlar\Auth\LoginController@logout')->name('logout');
